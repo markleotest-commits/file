@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Validate a DC — Sheet-bot</title>
+<style>
+  :root{
+    --bg:#0f1216; --card:#181d24; --line:#2a313b; --ink:#e6eaf0; --dim:#8d99a8;
+    --go:#2f7d5b; --goh:#3a9a71; --busy:#8a6d1f; --bad:#a33b3b; --badh:#c04a4a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.5 "Segoe UI",system-ui,sans-serif; padding:28px;
+  }
+  h1{font-size:22px; margin:0 0 4px}
+  .sub{color:var(--dim); font-size:13px; margin-bottom:22px}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:18px 20px; margin-bottom:16px;
+  }
+  .dchead{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .dcname{font-size:17px; font-weight:600}
+  .tabs{color:var(--dim); font-size:12.5px}
+  button{
+    background:var(--go); color:#fff; border:0; border-radius:7px;
+    padding:10px 18px; font:600 14px "Segoe UI",system-ui,sans-serif;
+    cursor:pointer; letter-spacing:.2px;
+  }
+  button:hover:not(:disabled){background:var(--goh)}
+  button:disabled{background:#39414c; color:#7b8694; cursor:not-allowed}
+  button.stop{background:var(--bad)} button.stop:hover:not(:disabled){background:var(--badh)}
+  button.reval{background:#3a4356} button.reval:hover:not(:disabled){background:#465272}
+  .pill{
+    font-size:11.5px; padding:3px 9px; border-radius:99px;
+    background:#252c36; color:var(--dim); border:1px solid var(--line);
+  }
+  .pill.running{background:#3a3212; color:#e5c765; border-color:#5c4d1c}
+  .pill.done{background:#12301f; color:#6fd39c; border-color:#1f4a31}
+  .pill.failed{background:#3a1a1a; color:#ef8b8b; border-color:#5c2626}
+  ol.ph{margin:16px 0 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:6px}
+  ol.ph li{
+    font-size:11.5px; padding:4px 10px; border-radius:5px;
+    background:#1e242c; color:#6b7683; border:1px solid #262e38;
+  }
+  ol.ph li.run{background:#3a3212; color:#e5c765; border-color:#5c4d1c}
+  ol.ph li.ok{background:#14311f; color:#6fd39c; border-color:#1f4a31}
+  .res{margin-top:14px; font-size:13.5px; color:var(--dim)}
+  .res b{color:var(--ink)}
+  #msg{
+    position:sticky; bottom:0; background:#141920; border:1px solid var(--line);
+    border-radius:8px; padding:12px 16px; font-size:13.5px; margin-top:8px;
+  }
+  #log{
+    font:12px/1.65 Consolas,monospace; color:var(--dim); background:#12161c;
+    border:1px solid var(--line); border-radius:8px; padding:12px 14px;
+    max-height:190px; overflow:auto; white-space:pre-wrap;
+  }
+  h2{font-size:13px; text-transform:uppercase; letter-spacing:.8px; color:var(--dim); margin:0 0 12px}
+  .off{opacity:.45}
+  .daterow{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  select{
+    background:#11161d; color:var(--ink); border:1px solid var(--line);
+    border-radius:7px; padding:9px 12px; font:14px "Segoe UI",system-ui,sans-serif;
+    min-width:230px; cursor:pointer;
+  }
+  select:focus{outline:1px solid var(--goh)}
+  button.small{padding:9px 14px; font-size:13px; background:#3a4356}
+  button.small:hover:not(:disabled){background:#465272}
+  .when{color:var(--dim); font-size:12.5px}
+  input.oid{
+    background:#11161d; color:var(--ink); border:1px solid var(--line);
+    border-radius:7px; padding:9px 12px; font:14px "Segoe UI",system-ui,sans-serif;
+    min-width:230px; text-transform:uppercase;
+  }
+  input.oid:focus{outline:1px solid var(--goh)}
+  #traceOut{margin-top:12px}
+  .tracehit{
+    display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    border-top:1px solid var(--line); padding:8px 2px; font-size:13px;
+  }
+  .tracehit .d{font-weight:600}
+  .tracehit .meta{color:var(--dim)}
+  .tracehit .st{
+    font-size:11.5px; padding:2px 9px; border-radius:99px;
+    background:#252c36; color:var(--dim); border:1px solid var(--line);
+  }
+  .tracehit .st.pending{background:#3a3212; color:#e5c765; border-color:#5c4d1c}
+  .tracehit .st.ok{background:#12301f; color:#6fd39c; border-color:#1f4a31}
+  .traceerr{color:#e79a9a; font-size:12.5px; padding:4px 2px; display:block}
+  .tracenote{color:var(--dim); font-size:12.5px; padding:4px 2px; display:block}
+</style>
+</head>
+<body>
+
+<h1>Validate a DC</h1>
+<div class="sub">
+  Pick the date, then click a DC. The whole pipeline runs for it — pending T.O.s
+  from its dock tabs, FMS Batch Search, export, download, WPS copy, validate in
+  Misroute Checker, write to DUMP ALL, packed scrape.
+</div>
+
+<div class="card">
+  <h2>Date to validate</h2>
+  <div class="daterow">
+    <select id="dates" onchange="pickDate(this.value)"></select>
+    <button class="small" onclick="refreshDates(this)">REFRESH</button>
+    <span class="when" id="when"></span>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Trace a T.O. / OID</h2>
+  <div class="daterow">
+    <input class="oid" id="traceOid" placeholder="PH..." autocomplete="off"
+           spellcheck="false"
+           onkeydown="if(event.key==='Enter')startTrace()">
+    <select id="traceDays" title="How far back to sweep">
+      <option value="7">last 7 days</option>
+      <option value="30" selected>last 30 days</option>
+      <option value="60">last 60 days</option>
+      <option value="90">last 90 days</option>
+    </select>
+    <button class="small" id="traceBtn" onclick="startTrace()">TRACE</button>
+    <span class="when" id="traceWhen"></span>
+  </div>
+  <div class="sub" style="margin:8px 0 0">
+    Sweeps every <b>DAC OFFLINE</b> sheet from today back the chosen number of
+    days and reports each date where this value sits in a dock tab (with its
+    Status) or in that day's DUMP ALL.
+  </div>
+  <div id="traceOut"></div>
+</div>
+
+<div id="list"></div>
+
+<div class="card">
+  <div id="msg">Pick a DC to start.</div>
+  <div style="height:10px"></div>
+  <div id="log"></div>
+</div>
+
+<script>
+// Served by validate_ui.py -> http://127.0.0.1:8787/
+// Opened straight off disk -> file:// sends Origin: null, so pick the port.
+const BASE = location.protocol === 'file:'
+  ? 'http://127.0.0.1:8787'
+  : location.origin;
+
+const LABELS = {
+  sheets_read:    '1. Read pending T.O.s',
+  fms_search:     '2. FMS Batch Search',
+  fms_export:     '3. Export results',
+  download_verify:'4. Download + WPS',
+  wps_copy:       '5. Copy export',
+  mc_validate:    '6. Validate in MC',
+  dump_all_write: '7. Write DUMP ALL',
+  packed_scrape:  '8. Packed scrape',
+};
+
+let STATE = null;
+
+async function api(path, body) {
+  const r = await fetch(BASE + path, {
+    method: body ? 'POST' : 'GET',
+    headers: body ? { 'Content-Type': 'application/json' } : undefined,
+    body: body ? JSON.stringify(body) : undefined,
+    cache: 'no-store',
+  });
+  if (!r.ok) throw new Error(await r.text() || r.statusText);
+  return r.json();
+}
+
+// What is currently selected, or '' for AUTO. Kept separately from STATE so a
+// click reads the value the user can see, never a half-applied server value.
+let PICKED = '';
+
+// Send the picked date with a run. Falls back to '' (AUTO) if the picker has
+// not loaded, so a run can never go out with an undefined date.
+function chosenDate() {
+  return PICKED || '';
+}
+
+function pickDate(v) {
+  const d = (v && v !== 'auto') ? v : '';
+  PICKED = d;
+  api('/api/date', { date: d })
+    .then(r => {
+      // The server applies the pick before answering, so it is the authority.
+      // If it refused, snap the dropdown back — otherwise the page would show
+      // AUTO while START still carried the date that was just rejected.
+      if (r && r.ok === false) {
+        showErr(new Error(r.error || 'That date was not accepted.'));
+        PICKED = r.date || '';
+        const sel = document.getElementById('dates');
+        sel.value = r.date || 'auto';
+      } else {
+        PICKED = (r && r.date) || d;
+      }
+      return poll();
+    })
+    .catch(showErr);
+}
+
+function refreshDates(btn) {
+  btn.disabled = true;
+  btn.textContent = 'FINDING…';
+  api('/api/dates', {})
+    .then(() => poll())
+    .catch(showErr)
+    .finally(() => { btn.disabled = false; btn.textContent = 'REFRESH'; });
+}
+
+// ---- Trace: sweep today -> past N days of DAC OFFLINE sheets for one T.O. ----
+// The scan itself runs on the launcher's main thread (Google calls), so this
+// only queues it and then reads state.trace back on every poll.
+
+function startTrace() {
+  const oid = document.getElementById('traceOid').value.trim();
+  if (!oid) {
+    showErr(new Error('Type a T.O. / OID first, e.g. PH261001234567.'));
+    return;
+  }
+  const days = parseInt(document.getElementById('traceDays').value, 10) || 30;
+  api('/api/trace', { oid, days })
+    .then(() => poll())
+    .catch(showErr);
+}
+
+function el(cls, text) {
+  const n = document.createElement('span');
+  if (cls) n.className = cls;
+  if (text !== undefined) n.textContent = text;
+  return n;
+}
+
+function renderTrace() {
+  const t = STATE.trace || {};
+  const btn = document.getElementById('traceBtn');
+  const when = document.getElementById('traceWhen');
+  const out = document.getElementById('traceOut');
+  const busy = t.status === 'queued' || t.status === 'running';
+
+  btn.disabled = busy;
+  btn.textContent = busy ? 'SCANNING…' : 'TRACE';
+  when.textContent = busy
+    ? (t.progress || 'queued…')
+    : (t.status === 'done' && t.result
+        ? 'checked ' + t.result.checked + ' sheet(s), '
+          + t.result.from + ' → ' + t.result.to
+        : (t.error || ''));
+
+  // Results only rebuild when the trace itself changed, so typing in the
+  // box or a run's phase updates never wipe them.
+  const sig = JSON.stringify(t);
+  if (out.dataset.sig === sig) return;
+  out.dataset.sig = sig;
+  out.innerHTML = '';
+
+  if (t.status === 'failed' && t.error) {
+    out.appendChild(el('traceerr', 'Error: ' + t.error));
+    return;
+  }
+  const r = t.result;
+  if (!r) return;
+
+  if (r.note) {
+    out.appendChild(el('tracenote', r.note));
+    return;
+  }
+
+  const sum = document.createElement('div');
+  sum.className = 'res';
+  sum.style.marginTop = '4px';
+  if ((r.hits || []).length) {
+    sum.innerHTML = 'FOUND on <b></b> of <b></b> sheet(s)';
+    sum.querySelectorAll('b')[0].textContent = r.dates_hit;
+    sum.querySelectorAll('b')[1].textContent = r.checked;
+  } else {
+    sum.textContent = 'Not found on any of the ' + r.checked
+      + ' sheet(s) checked.';
+  }
+  out.appendChild(sum);
+
+  for (const h of (r.hits || [])) {
+    const row = document.createElement('div');
+    row.className = 'tracehit';
+    row.appendChild(el('d', h.date));
+    row.appendChild(el('meta', h.title));
+    if (h.tab) {
+      row.appendChild(el('meta', h.tab + ' · row ' + h.row + ' (' + h.to_col + ')'));
+      const st = document.createElement('span');
+      st.className = 'st' + (h.status ? '' : ' pending');
+      st.textContent = h.status ? 'Status: ' + h.status : 'still PENDING';
+      row.appendChild(st);
+      if (h.match === 'partial') row.appendChild(el('meta', 'partial match'));
+    } else {
+      row.appendChild(el('meta', 'DUMP ALL only'));
+    }
+    if (h.dump) {
+      const d = document.createElement('span');
+      d.className = 'st' + (h.dump.status ? ' ok' : '');
+      d.textContent = 'DUMP ALL row ' + h.dump.row + ': '
+        + (h.dump.status || '(no status)')
+        + (h.dump.remarks ? ' — ' + h.dump.remarks : '');
+      row.appendChild(d);
+    }
+    out.appendChild(row);
+  }
+
+  for (const e of (r.errors || [])) {
+    out.appendChild(el('traceerr', 'could not check ' + e.date + ' — ' + e.error));
+  }
+
+  if ((r.checked_dates || []).length) {
+    out.appendChild(el('tracenote', 'checked: '
+      + r.checked_dates.join(', ')));
+  }
+}
+
+// Rebuilding the DOM every second would swap the button out from under a
+// click. Only re-render when something actually changed.
+let LAST_SIG = '';
+
+function signature(s) {
+  return JSON.stringify([
+    s.sheet, s.sheet_date, s.dates, s.running, s.message, s.log, s.trace,
+    s.dcs.map(d => [d.name, d.status, d.result, d.phases]),
+  ]);
+}
+
+function renderDates() {
+  const sel = document.getElementById('dates');
+  const dates = (STATE.dates || []);
+  // Adopt the server's choice unless the user has just picked one.
+  if (sel.dataset.sig !== JSON.stringify([dates, STATE.sheet_date])) {
+    sel.dataset.sig = JSON.stringify([dates, STATE.sheet_date]);
+    sel.innerHTML = '';
+    const auto = document.createElement('option');
+    auto.value = 'auto';
+    auto.textContent = 'AUTO — today / newest available';
+    sel.appendChild(auto);
+
+    // Drive holds every dated file the team has made, including ones
+    // pre-created for future days, so a plain newest-first list buries today
+    // under future dates. Put today on top, keep the rest newest-first.
+    const today = new Date();
+    const iso = today.getFullYear() + '-'
+      + String(today.getMonth() + 1).padStart(2, '0') + '-'
+      + String(today.getDate()).padStart(2, '0');
+    const rest = dates.filter(d => d.date !== iso);
+    const todays = dates.filter(d => d.date === iso);
+    const ordered = todays.concat(rest);
+
+    for (const d of ordered) {
+      const o = document.createElement('option');
+      o.value = d.date;
+      o.textContent = d.date + (d.date === iso ? '  ·  TODAY' : '')
+        + '  ·  ' + d.title
+        + (d.modified ? '  ·  edited ' + d.modified : '');
+      sel.appendChild(o);
+    }
+    // The server is the authority on which date is in force, and it applies a
+    // pick before answering, so adopt its value whenever it differs. A pick it
+    // refused (or one a refresh dropped) must not survive here — otherwise the
+    // dropdown would read AUTO while START still carried the rejected date.
+    if (STATE.sheet_date) PICKED = STATE.sheet_date;
+    else PICKED = '';
+  }
+  // Never move the dropdown out from under someone who is using it.
+  if (document.activeElement !== sel) {
+    sel.value = STATE.sheet_date || 'auto';
+    if (!PICKED) PICKED = STATE.sheet_date || '';
+  }
+  document.getElementById('when').textContent = STATE.sheet
+    ? 'working on: ' + STATE.sheet
+    : (dates.length ? '' : 'no dated sheets found — use REFRESH');
+}
+
+function render() {
+  if (!STATE) return;
+  const sig = signature(STATE);
+  if (sig === LAST_SIG) return;
+  LAST_SIG = sig;
+  const busy = !!STATE.running;
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+
+  renderDates();
+  renderTrace();
+
+  for (const d of STATE.dcs) {
+    const card = document.createElement('div');
+    card.className = 'card' + (busy && STATE.running !== d.name ? ' off' : '');
+
+    const head = document.createElement('div');
+    head.className = 'dchead';
+
+    const name = document.createElement('div');
+    name.className = 'dcname';
+    name.textContent = d.name;
+    head.appendChild(name);
+
+    const tabs = document.createElement('div');
+    tabs.className = 'tabs';
+    tabs.textContent = (d.tabs || []).join('  ·  ');
+    head.appendChild(tabs);
+
+    if (STATE.running === d.name) {
+      const sb = document.createElement('button');
+      sb.textContent = 'STOP';
+      sb.className = 'stop';
+      sb.onclick = () => api('/api/stop', {}).catch(showErr);
+      head.appendChild(sb);
+    } else {
+      // Normal run: skips T.O.s already in DUMP ALL.
+      const btn = document.createElement('button');
+      const when = chosenDate() || 'today';
+      btn.textContent = 'START VALIDATION FOR ' + d.name;
+      btn.title = 'Reads pending T.O.s from ' + when
+        + " and writes DUMP ALL to the same day's sheet.";
+      btn.disabled = busy;
+      btn.onclick = () => {
+        btn.disabled = true;
+        btn.textContent = 'Queued…';
+        api('/api/run', { dc: d.name, revalidate: false, date: chosenDate() })
+          .then(() => poll())
+          .catch(e => { showErr(e); poll(); });
+      };
+      head.appendChild(btn);
+
+      // Re-run: includes T.O.s already in DUMP ALL. For a failed/partial run,
+      // or when the source tabs are still blank after a good one.
+      const re = document.createElement('button');
+      re.textContent = 'RE-VALIDATE';
+      re.className = 'reval';
+      re.title = 'Validate again, including T.O.s already in DUMP ALL';
+      re.disabled = busy;
+      re.onclick = () => {
+        if (!confirm(
+          'Re-validate ' + d.name + ' for ' + when + '?\n\n' +
+          'This includes T.O.s already in DUMP ALL. Use it after a failed or ' +
+          'partial run, or when a DC finished but the sheet still shows the ' +
+          'T.O.s as blank.'
+        )) return;
+        re.disabled = true;
+        re.textContent = 'Queued…';
+        api('/api/run', { dc: d.name, revalidate: true, date: chosenDate() })
+          .then(() => poll())
+          .catch(e => { showErr(e); poll(); });
+      };
+      head.appendChild(re);
+    }
+
+    const pill = document.createElement('div');
+    pill.className = 'pill ' + (d.status === 'idle' ? '' : d.status);
+    pill.textContent = d.status === 'running' ? 'RUNNING'
+      : d.status === 'done' ? 'DONE'
+      : d.status === 'failed' ? 'FAILED' : 'READY';
+    head.appendChild(pill);
+
+    card.appendChild(head);
+
+    const ol = document.createElement('ol');
+    ol.className = 'ph';
+    for (const p of Object.keys(LABELS)) {
+      const li = document.createElement('li');
+      const st = (d.phases || {})[p] || 'idle';
+      li.className = st === 'done' ? 'ok' : st === 'running' ? 'run' : '';
+      li.textContent = LABELS[p];
+      ol.appendChild(li);
+    }
+    card.appendChild(ol);
+
+    if (d.result) {
+      const r = document.createElement('div');
+      r.className = 'res';
+      r.innerHTML = 'From <b>' + d.result.pending + '</b> pending T.O.s → '
+        + '<b>' + d.result.misroutes + '</b> misroute, '
+        + '<b>' + d.result.soc_lh + '</b> SOC-LH written to DUMP ALL'
+        + (d.result.sheet ? ' on <b>' + d.result.sheet + '</b>' : '');
+      card.appendChild(r);
+    }
+    list.appendChild(card);
+  }
+
+  document.getElementById('msg').textContent = STATE.message || '';
+  const log = document.getElementById('log');
+  log.textContent = (STATE.log || []).join('\n');
+  log.scrollTop = log.scrollHeight;
+}
+
+function showErr(e) {
+  document.getElementById('msg').textContent = 'Error: ' + e.message;
+}
+
+async function poll() {
+  try {
+    STATE = await api('/api/state');
+    render();
+  } catch (e) {
+    showErr(e);
+    return false;
+  }
+  setTimeout(poll, 1000);
+}
+poll();
+</script>
+</body>
+</html>

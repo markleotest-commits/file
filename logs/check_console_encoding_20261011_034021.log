@@ -1,0 +1,73 @@
+======================================================================
+ SHEET-BOT ERROR REPORT  ·  check_console_encoding
+======================================================================
+timestamp : 2026-10-11 03:40:21
+platform  : win32 (nt)
+python    : 3.14.7 (C:\Users\phlspxuser\AppData\Local\Python\pythoncore-3.14-64\python.exe)
+prefix    : DAC OFFLINE
+MC_DC     : 
+source    : 
+cwd       : C:\Users\phlspxuser\sheet-bot
+----------------------------------------------------------------------
+ WHAT HAPPENED
+----------------------------------------------------------------------
+upstream said → nope
+
+----------------------------------------------------------------------
+ FULL TRACEBACK
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\phlspxuser\sheet-bot\lib\cli.py", line 438, in wrapper
+    rc = fn(*a, **k)
+  File "C:\Users\phlspxuser\sheet-bot\tools\check_console_encoding.py", line 176, in boom
+    raise RuntimeError("upstream said \u2192 nope")
+RuntimeError: upstream said → nope
+
+
+----------------------------------------------------------------------
+ RUN TRANSCRIPT
+----------------------------------------------------------------------
+[03:40:21] INFO  → ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] OK    → ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] WARN  → ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] ERROR → ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] INFO  → ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] OK    → ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] INFO  label → ✓ ⚠ ─ ║ • — � 🔄 中 plain: value → ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] STEP  STEP 1/9  text → ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] ---   
+[03:40:21] INFO  | title → ✓ ⚠ ─ ║ • — � 🔄 中 plain =========================================
+[03:40:21] ---   
+[03:40:21] ---   → ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain→ ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] INFO  
+[03:40:21] INFO  ============================================================
+[03:40:21] INFO                   → ✓ ⚠ ─ ║ • — � 🔄 中 plain                  
+[03:40:21] INFO                   → ✓ ⚠ ─ ║ • — � 🔄 中 plain                  
+[03:40:21] INFO  ============================================================
+[03:40:21] INFO  
+[03:40:21] ---   ------------------------------------------------------------------------
+[03:40:21] INFO  [OK] DONE - → ✓ ⚠ ─ ║ • — � 🔄 中 plain finished successfully.
+[03:40:21] OK    [OK] done → ✓ ⚠ ─ ║ • — � 🔄 中 plain
+[03:40:21] OK    Wrote 999 rows × 57 cols → C:\Users\phlspxuser\sheet-bot\downloads\x.xlsx
+[03:40:21] ---   ------------------------------------------------------------------------
+[03:40:21] INFO    [FAIL] SCRIPT FAILED
+[03:40:21] INFO  
+[03:40:21] INFO    What happened: FMS said: order → status ✓ failed 中
+[03:40:21] INFO  
+[03:40:21] INFO    To report this error:
+[03:40:21] INFO     1) copy this file path:
+[03:40:21] INFO        C:\Users\phlspxuser\sheet-bot\logs\check_console_encoding_20261011_034021.log
+[03:40:21] INFO     2) paste it into the report (or attach the file).
+[03:40:21] INFO        It already contains your config snapshot + full traceback.
+[03:40:21] INFO  
+[03:40:21] INFO    Tip: fix the first error above, then simply re-run the same command.
+[03:40:21] ---   ------------------------------------------------------------------------
+[03:40:21] INFO  
+[03:40:21] INFO  ================================================================
+[03:40:21] INFO   SHEET-BOT
+[03:40:21] INFO  check_console_encoding - guard
+[03:40:21] INFO   started Oct 11, 2026  03:40:21
+[03:40:21] INFO  ================================================================
+[03:40:21] INFO  
+
+======================================================================

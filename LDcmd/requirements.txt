@@ -1,0 +1,6 @@
+# LDcmd runtime dependencies
+PyQt6>=6.4
+pywinpty>=2.0.10
+
+# Optional: to build a standalone LDcmd.exe
+# pyinstaller>=6.0

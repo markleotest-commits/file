@@ -1,0 +1,651 @@
+[
+ {
+  "at": "2026-10-12T01:14:46",
+  "dc": "DAVAO DC",
+  "pending": 858,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 67.3,
+  "phases": {
+   "sheets_read": 5.91,
+   "chrome_start": 0.11,
+   "fms_search": 2.92,
+   "fms_export": 6.63,
+   "download_verify": 17.33,
+   "wps_copy": 1.85,
+   "mc_validate": 0.69,
+   "dump_all_write": 5.62,
+   "packed_scrape": 18.65
+  }
+ },
+ {
+  "at": "2026-10-12T01:16:29",
+  "dc": "DAVAO DC",
+  "pending": 428,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 48.8,
+  "phases": {
+   "sheets_read": 9.21,
+   "chrome_start": 0.05,
+   "fms_search": 1.25,
+   "fms_export": 4.22,
+   "download_verify": 15.95,
+   "wps_copy": 1.09,
+   "mc_validate": 0.51,
+   "dump_all_write": 5.18,
+   "packed_scrape": 3.95
+  }
+ },
+ {
+  "at": "2026-10-12T01:17:56",
+  "dc": "DAVAO DC",
+  "pending": 224,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 43.8,
+  "phases": {
+   "sheets_read": 3.59,
+   "chrome_start": 0.04,
+   "fms_search": 0.93,
+   "fms_export": 3.02,
+   "download_verify": 16.54,
+   "wps_copy": 1.01,
+   "mc_validate": 0.41,
+   "dump_all_write": 5.54,
+   "packed_scrape": 5.49
+  }
+ },
+ {
+  "at": "2026-10-12T01:23:37",
+  "dc": "DAVAO DC",
+  "pending": 190,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 42.8,
+  "phases": {
+   "sheets_read": 4.34,
+   "chrome_start": 0.11,
+   "fms_search": 0.8,
+   "fms_export": 3.01,
+   "download_verify": 15.27,
+   "wps_copy": 1.06,
+   "mc_validate": 0.41,
+   "dump_all_write": 1.6,
+   "packed_scrape": 9.18
+  }
+ },
+ {
+  "at": "2026-10-12T01:33:21",
+  "dc": "DAVAO DC",
+  "pending": 435,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 63.3,
+  "phases": {
+   "sheets_read": 14.4,
+   "chrome_start": 0.14,
+   "fms_search": 1.41,
+   "fms_export": 4.33,
+   "download_verify": 16.85,
+   "wps_copy": 1.18,
+   "mc_validate": 0.61,
+   "dump_all_write": 5.04,
+   "packed_scrape": 11.97
+  }
+ },
+ {
+  "at": "2026-10-12T01:35:20",
+  "dc": "GENSAN DC",
+  "pending": 1696,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 60.0,
+  "phases": {
+   "sheets_read": 3.98,
+   "chrome_start": 0.06,
+   "fms_search": 5.8,
+   "fms_export": 9.77,
+   "download_verify": 18.44,
+   "wps_copy": 1.06,
+   "mc_validate": 0.99,
+   "dump_all_write": 5.03,
+   "packed_scrape": 7.8
+  }
+ },
+ {
+  "at": "2026-10-12T01:36:48",
+  "dc": "DAVAO DC",
+  "pending": 402,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 48.0,
+  "phases": {
+   "sheets_read": 4.59,
+   "chrome_start": 0.07,
+   "fms_search": 1.1,
+   "fms_export": 4.13,
+   "download_verify": 15.2,
+   "wps_copy": 0.99,
+   "mc_validate": 0.58,
+   "dump_all_write": 5.08,
+   "packed_scrape": 9.32
+  }
+ },
+ {
+  "at": "2026-10-12T01:45:05",
+  "dc": "GENSAN DC",
+  "pending": 1105,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 65.3,
+  "phases": {
+   "sheets_read": 4.44,
+   "chrome_start": 0.45,
+   "fms_search": 3.43,
+   "fms_export": 5.03,
+   "download_verify": 17.87,
+   "wps_copy": 2.58,
+   "mc_validate": 0.65,
+   "dump_all_write": 6.48,
+   "packed_scrape": 16.82
+  }
+ },
+ {
+  "at": "2026-10-12T01:46:48",
+  "dc": "DAVAO DC",
+  "pending": 280,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 79.2,
+  "phases": {
+   "sheets_read": 3.76,
+   "chrome_start": 0.05,
+   "fms_search": 1.01,
+   "fms_export": 3.94,
+   "download_verify": 14.87,
+   "wps_copy": 0.99,
+   "mc_validate": 0.5,
+   "dump_all_write": 6.39,
+   "packed_scrape": 40.77
+  }
+ },
+ {
+  "at": "2026-10-12T01:57:06",
+  "dc": "DAVAO DC",
+  "pending": 518,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 53.2,
+  "phases": {
+   "sheets_read": 4.33,
+   "chrome_start": 0.44,
+   "fms_search": 1.98,
+   "fms_export": 5.24,
+   "download_verify": 16.67,
+   "wps_copy": 1.31,
+   "mc_validate": 0.73,
+   "dump_all_write": 6.09,
+   "packed_scrape": 8.85
+  }
+ },
+ {
+  "at": "2026-10-12T02:09:31",
+  "dc": "DAVAO DC",
+  "pending": 470,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 49.0,
+  "phases": {
+   "sheets_read": 5.99,
+   "chrome_start": 0.5,
+   "fms_search": 2.59,
+   "fms_export": 4.12,
+   "download_verify": 17.29,
+   "wps_copy": 1.52,
+   "mc_validate": 0.6,
+   "dump_all_write": 5.95,
+   "packed_scrape": 2.26
+  }
+ },
+ {
+  "at": "2026-10-12T02:13:03",
+  "dc": "GENSAN DC",
+  "pending": 1287,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 47.6,
+  "phases": {
+   "sheets_read": 3.76
+  }
+ },
+ {
+  "at": "2026-10-12T02:14:28",
+  "dc": "GENSAN DC",
+  "pending": 821,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 79.6,
+  "phases": {
+   "sheets_read": 4.36,
+   "chrome_start": 0.17,
+   "fms_search": 4.92,
+   "fms_export": 5.44,
+   "download_verify": 16.8,
+   "wps_copy": 2.45,
+   "mc_validate": 0.68,
+   "dump_all_write": 8.71,
+   "packed_scrape": 9.17
+  }
+ },
+ {
+  "at": "2026-10-12T02:16:41",
+  "dc": "DAVAO DC",
+  "pending": 475,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 96.6,
+  "phases": {
+   "sheets_read": 5.36,
+   "chrome_start": 0.1,
+   "fms_search": 1.55,
+   "fms_export": 6.54,
+   "download_verify": 57.99,
+   "wps_copy": 1.14,
+   "mc_validate": 1.2,
+   "dump_all_write": 4.95,
+   "packed_scrape": 9.95
+  }
+ },
+ {
+  "at": "2026-10-12T02:26:49",
+  "dc": "DAVAO DC",
+  "pending": 475,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 57.7,
+  "phases": {
+   "sheets_read": 5.05,
+   "chrome_start": 0.74,
+   "fms_search": 3.02,
+   "fms_export": 4.95,
+   "download_verify": 23.63,
+   "wps_copy": 1.8,
+   "mc_validate": 1.09,
+   "dump_all_write": 4.44,
+   "packed_scrape": 5.03
+  }
+ },
+ {
+  "at": "2026-10-12T03:11:30",
+  "dc": "DAVAO DC",
+  "pending": 537,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 50.1,
+  "phases": {
+   "sheets_read": 7.45
+  }
+ },
+ {
+  "at": "2026-10-12T03:13:48",
+  "dc": "DAVAO DC",
+  "pending": 602,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 41.0,
+  "phases": {
+   "sheets_read": 4.55
+  }
+ },
+ {
+  "at": "2026-10-12T03:23:48",
+  "dc": "DAVAO DC",
+  "pending": 865,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 84.3,
+  "phases": {
+   "sheets_read": 5.46,
+   "chrome_start": 0.64,
+   "fms_search": 28.82,
+   "fms_export": 1.53,
+   "download_verify": 19.35,
+   "wps_copy": 2.65,
+   "mc_validate": 1.04,
+   "dump_all_write": 6.25,
+   "packed_scrape": 10.39
+  }
+ },
+ {
+  "at": "2026-10-12T03:27:51",
+  "dc": "DAVAO DC",
+  "pending": 149,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 51.7,
+  "phases": {
+   "sheets_read": 8.15,
+   "chrome_start": 0.09,
+   "fms_search": 2.0,
+   "fms_export": 3.39,
+   "download_verify": 15.24,
+   "wps_copy": 1.62,
+   "mc_validate": 1.15,
+   "dump_all_write": 6.36,
+   "packed_scrape": 6.63
+  }
+ },
+ {
+  "at": "2026-10-12T21:29:54",
+  "dc": "DAVAO DC",
+  "pending": 1236,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 66.3,
+  "phases": {
+   "sheets_read": 34.45
+  }
+ },
+ {
+  "at": "2026-10-12T21:35:26",
+  "dc": "DAVAO DC",
+  "pending": 1418,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 192.0,
+  "phases": {
+   "sheets_read": 6.68,
+   "chrome_start": 0.26,
+   "fms_search": 18.44,
+   "fms_export": 0.97,
+   "download_verify": 20.62,
+   "wps_copy": 2.55,
+   "mc_validate": 3.01,
+   "dump_all_write": 14.06,
+   "packed_scrape": 85.74
+  }
+ },
+ {
+  "at": "2026-10-12T21:38:14",
+  "dc": "DAVAO DC",
+  "pending": 1211,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 101.0,
+  "phases": {
+   "sheets_read": 7.35,
+   "chrome_start": 0.12,
+   "fms_search": 9.88,
+   "fms_export": 0.88,
+   "download_verify": 20.43,
+   "wps_copy": 2.25,
+   "mc_validate": 1.24,
+   "dump_all_write": 9.25,
+   "packed_scrape": 10.41
+  }
+ },
+ {
+  "at": "2026-10-12T22:01:32",
+  "dc": "DAVAO DC",
+  "pending": 913,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 124.3,
+  "phases": {
+   "sheets_read": 14.75,
+   "chrome_start": 0.17,
+   "fms_search": 23.66,
+   "fms_export": 0.82,
+   "download_verify": 16.66,
+   "wps_copy": 1.09,
+   "mc_validate": 0.58,
+   "dump_all_write": 18.25,
+   "packed_scrape": 9.19
+  }
+ },
+ {
+  "at": "2026-10-12T22:04:05",
+  "dc": "GENSAN DC",
+  "pending": 839,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 96.5,
+  "phases": {
+   "sheets_read": 9.09,
+   "chrome_start": 0.08,
+   "fms_search": 8.91,
+   "fms_export": 0.94,
+   "download_verify": 12.15,
+   "wps_copy": 0.96,
+   "mc_validate": 0.74,
+   "dump_all_write": 21.9,
+   "packed_scrape": 3.87
+  }
+ },
+ {
+  "at": "2026-10-12T22:05:38",
+  "dc": "DAVAO DC",
+  "pending": 562,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 80.0,
+  "phases": {
+   "sheets_read": 7.23,
+   "chrome_start": 0.05,
+   "fms_search": 4.94,
+   "fms_export": 0.71,
+   "download_verify": 15.06,
+   "wps_copy": 0.97,
+   "mc_validate": 0.43,
+   "dump_all_write": 8.87,
+   "packed_scrape": 3.85
+  }
+ },
+ {
+  "at": "2026-10-12T22:08:22",
+  "dc": "DAVAO DC",
+  "pending": 574,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 88.8,
+  "phases": {
+   "sheets_read": 6.58,
+   "chrome_start": 0.08,
+   "fms_search": 4.52,
+   "fms_export": 0.81,
+   "download_verify": 15.38,
+   "wps_copy": 1.01,
+   "mc_validate": 0.38,
+   "dump_all_write": 18.84,
+   "packed_scrape": 3.33
+  }
+ },
+ {
+  "at": "2026-10-12T22:21:39",
+  "dc": "DAVAO DC",
+  "pending": 603,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 98.1,
+  "phases": {
+   "sheets_read": 15.92,
+   "chrome_start": 0.28,
+   "fms_search": 7.63,
+   "fms_export": 0.75,
+   "download_verify": 16.89,
+   "wps_copy": 1.24,
+   "mc_validate": 0.69,
+   "dump_all_write": 11.36,
+   "packed_scrape": 3.87
+  }
+ },
+ {
+  "at": "2026-10-12T22:24:40",
+  "dc": "DAVAO DC",
+  "pending": 317,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 85.2,
+  "phases": {
+   "sheets_read": 5.0,
+   "chrome_start": 0.17,
+   "fms_search": 4.53,
+   "fms_export": 0.74,
+   "download_verify": 16.27,
+   "wps_copy": 0.98,
+   "mc_validate": 0.49,
+   "dump_all_write": 9.32,
+   "packed_scrape": 9.33
+  }
+ },
+ {
+  "at": "2026-10-12T22:27:25",
+  "dc": "DAVAO DC",
+  "pending": 412,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 85.4,
+  "phases": {
+   "sheets_read": 5.77,
+   "chrome_start": 0.09,
+   "fms_search": 4.45,
+   "fms_export": 0.92,
+   "download_verify": 12.25,
+   "wps_copy": 0.97,
+   "mc_validate": 0.41,
+   "dump_all_write": 7.96,
+   "packed_scrape": 14.5
+  }
+ },
+ {
+  "at": "2026-10-12T23:46:24",
+  "dc": "DAVAO DC",
+  "pending": 1491,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 87.2,
+  "phases": {
+   "sheets_read": 11.18,
+   "chrome_start": 0.43
+  }
+ },
+ {
+  "at": "2026-10-12T23:49:15",
+  "dc": "DAVAO DC",
+  "pending": 1592,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 166.6,
+  "phases": {
+   "sheets_read": 4.62,
+   "chrome_start": 0.16,
+   "fms_search": 24.03,
+   "fms_export": 0.81,
+   "download_verify": 26.11,
+   "wps_copy": 7.12,
+   "mc_validate": 5.58,
+   "dump_all_write": 11.65,
+   "packed_scrape": 47.12
+  }
+ },
+ {
+  "at": "2026-10-12T23:51:17",
+  "dc": "GENSAN DC",
+  "pending": 466,
+  "date": "DAC OFFLINE OCTOBER 12 2026",
+  "total_seconds": 109.1,
+  "phases": {
+   "sheets_read": 6.36,
+   "chrome_start": 0.17,
+   "fms_search": 7.8,
+   "fms_export": 0.9,
+   "download_verify": 44.73,
+   "wps_copy": 1.65,
+   "mc_validate": 1.03,
+   "dump_all_write": 7.06,
+   "packed_scrape": 0.08
+  }
+ },
+ {
+  "at": "2026-10-13T00:03:24",
+  "dc": "GENSAN DC",
+  "pending": 876,
+  "date": "DAC OFFLINE OCTOBER 13 2026",
+  "total_seconds": 190.4,
+  "phases": {
+   "sheets_read": 7.32,
+   "chrome_start": 0.94,
+   "fms_search": 18.52,
+   "fms_export": 1.29,
+   "download_verify": 99.25,
+   "wps_copy": 4.72,
+   "mc_validate": 1.73,
+   "dump_all_write": 6.36,
+   "packed_scrape": 7.19
+  }
+ },
+ {
+  "at": "2026-10-13T01:06:05",
+  "dc": "DAVAO DC",
+  "pending": 2482,
+  "date": "DAC OFFLINE OCTOBER 13 2026",
+  "total_seconds": 156.2,
+  "phases": {
+   "sheets_read": 6.14,
+   "chrome_start": 0.11,
+   "fms_search": 43.01,
+   "fms_export": 0.78,
+   "download_verify": 21.94,
+   "wps_copy": 2.74,
+   "mc_validate": 2.38,
+   "dump_all_write": 10.65,
+   "packed_scrape": 28.45
+  }
+ },
+ {
+  "at": "2026-10-13T01:12:24",
+  "dc": "DAVAO DC",
+  "pending": 907,
+  "date": "DAC OFFLINE OCTOBER 13 2026",
+  "total_seconds": 144.3,
+  "phases": {
+   "sheets_read": 9.29,
+   "chrome_start": 0.14,
+   "fms_search": 7.24,
+   "fms_export": 0.35,
+   "download_verify": 55.61,
+   "wps_copy": 3.04,
+   "mc_validate": 1.62,
+   "dump_all_write": 18.86,
+   "packed_scrape": 4.5
+  }
+ },
+ {
+  "at": "2026-10-13T01:15:52",
+  "dc": "GENSAN DC",
+  "pending": 1470,
+  "date": "DAC OFFLINE OCTOBER 13 2026",
+  "total_seconds": 117.4,
+  "phases": {
+   "sheets_read": 4.96,
+   "chrome_start": 0.19,
+   "fms_search": 14.69,
+   "fms_export": 0.8,
+   "download_verify": 15.93,
+   "wps_copy": 1.36,
+   "mc_validate": 0.98,
+   "dump_all_write": 19.47,
+   "packed_scrape": 15.81
+  }
+ },
+ {
+  "at": "2026-10-13T01:17:30",
+  "dc": "GENSAN DC",
+  "pending": 958,
+  "date": "DAC OFFLINE OCTOBER 13 2026",
+  "total_seconds": 60.3,
+  "phases": {
+   "sheets_read": 6.94
+  }
+ },
+ {
+  "at": "2026-10-13T01:17:55",
+  "dc": "GENSAN DC",
+  "pending": 874,
+  "date": "DAC OFFLINE OCTOBER 13 2026",
+  "total_seconds": 15.1,
+  "phases": {
+   "sheets_read": 6.36
+  }
+ },
+ {
+  "at": "2026-10-13T01:18:23",
+  "dc": "GENSAN DC",
+  "pending": 909,
+  "date": "DAC OFFLINE OCTOBER 13 2026",
+  "total_seconds": 14.9,
+  "phases": {
+   "sheets_read": 6.22
+  }
+ },
+ {
+  "at": "2026-10-13T01:28:19",
+  "dc": "DAVAO DC",
+  "pending": 975,
+  "date": "DAC OFFLINE OCTOBER 13 2026",
+  "total_seconds": 12.6,
+  "phases": {
+   "sheets_read": 3.73
+  }
+ }
+]
